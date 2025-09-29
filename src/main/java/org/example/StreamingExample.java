@@ -14,8 +14,19 @@ import java.util.concurrent.CompletableFuture;
 public class StreamingExample {
     public static void main(String[] args) {
 
-        CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
+        // Create model
+        Path modelPath = Paths.get("/home/orion/LLMModels/Qwen3-0.6B-f16.gguf");
 
+        GPULlama3StreamingChatModel model = GPULlama3StreamingChatModel.builder()
+                .modelPath(modelPath)
+                .temperature(0.6)
+                .topP(1.0)
+                .maxTokens(2048)
+                .onGPU(Boolean.FALSE) // if false, runs on CPU though a lightweight implementation of llama3.java
+                .build();
+
+
+        // Create request
         String prompt;
 
         if (args.length > 0) {
@@ -26,21 +37,14 @@ public class StreamingExample {
             System.out.println("Example Prompt: " + prompt);
         }
 
-        // @formatter:off
-        ChatRequest request = ChatRequest.builder().messages(
+        CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
+
+        ChatRequest request = ChatRequest.builder()
+                .messages(
                         UserMessage.from(prompt),
                         SystemMessage.from("reply with extensive sarcasm"))
                 .build();
 
-        //Path modelPath = Paths.get("/home/orion/LLMModels/beehive-llama-3.2-1b-instruct-fp16.gguf");
-        Path modelPath = Paths.get("/home/orion/LLMModels/Qwen3-0.6B-f16.gguf");
-
-
-        GPULlama3StreamingChatModel model = GPULlama3StreamingChatModel.builder()
-                .onGPU(Boolean.FALSE) // if false, runs on CPU though a lightweight implementation of llama3.java
-                .modelPath(modelPath)
-                .temperature(0.6)
-                .build();
         // @formatter:on
 
         model.chat(request, new StreamingChatResponseHandler() {

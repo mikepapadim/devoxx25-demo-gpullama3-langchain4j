@@ -6,6 +6,7 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.request.ChatRequest;
+import dev.langchain4j.model.chat.request.ChatRequestParameters;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.chat.response.PartialThinking;
 import dev.langchain4j.model.chat.response.StreamingChatResponseHandler;
@@ -23,15 +24,19 @@ public class Conversation {
 
         // Create models with parameters
         GPULlama3StreamingChatModel bot1 = GPULlama3StreamingChatModel.builder()
-                .onGPU(Boolean.FALSE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .modelPath(modelPath)
                 .temperature(0.6)
+                .topP(1.0)
+                .maxTokens(2048)
+                .onGPU(Boolean.FALSE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .build();
 
         GPULlama3StreamingChatModel bot2 = GPULlama3StreamingChatModel.builder()
-                .onGPU(Boolean.TRUE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .modelPath(modelPath)
                 .temperature(0.6)
+                .topP(1.0)
+                .maxTokens(2048)
+                .onGPU(Boolean.TRUE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .build();
 
         // Create separate chat memories for each agent

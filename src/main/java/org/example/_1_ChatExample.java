@@ -15,14 +15,15 @@ public class _1_ChatExample {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         // Create model
-        Path modelPath = Paths.get("/home/orion/LLMModels/Qwen3-0.6B-f16.gguf");
+        //Tested witg Qwen3-1.7B-f16.gguf &&
+        Path modelPath = Paths.get("/home/mikepapadim/Storage/gguf_models/Qwen3-1.7B-f16.gguf");
 
         GPULlama3ChatModel model = GPULlama3ChatModel.builder()
                 .modelPath(modelPath)
                 .temperature(0.6)
                 .topP(1.0)
                 .maxTokens(2048)
-                .onGPU(Boolean.FALSE) // if false, runs on CPU though a lightweight implementation of llama3.java
+                .onGPU(Boolean.TRUE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .build();
 
         String systemPrompt = "You are a helpful assistant.";

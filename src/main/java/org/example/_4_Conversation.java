@@ -6,7 +6,6 @@ import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.request.ChatRequest;
-import dev.langchain4j.model.chat.request.ChatRequestParameters;
 import dev.langchain4j.model.chat.response.ChatResponse;
 import dev.langchain4j.model.chat.response.PartialThinking;
 import dev.langchain4j.model.chat.response.StreamingChatResponseHandler;
@@ -17,7 +16,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-public class Conversation {
+public class _4_Conversation {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         Path modelPath = Paths.get("/home/orion/LLMModels/DeepSeek-R1-Distill-Qwen-1.5B-F16.gguf");

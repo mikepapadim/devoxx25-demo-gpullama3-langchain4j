@@ -34,7 +34,14 @@ public class _1_ChatExample {
 
         System.out.println("User: " + userPrompt1);
 
-        ChatRequest request = ChatRequest.builder().messages(SystemMessage.from(systemPrompt), UserMessage.from(userPrompt1)).build();
+        //@formatter:off
+        ChatRequest request = ChatRequest.builder()
+                .messages(
+                        SystemMessage.from(systemPrompt),
+                        UserMessage.from(userPrompt1)
+                )
+                .build();
+        //@formatter:on
 
         ChatResponse response = model.chat(request);
 

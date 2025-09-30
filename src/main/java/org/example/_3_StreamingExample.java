@@ -12,7 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.CompletableFuture;
 
-public class StreamingExample {
+public class _3_StreamingExample {
     public static void main(String[] args) {
 
         // Create model

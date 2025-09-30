@@ -19,22 +19,25 @@ import java.util.concurrent.ExecutionException;
 public class _4_Conversation {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        Path modelPath = Paths.get("/home/orion/LLMModels/DeepSeek-R1-Distill-Qwen-1.5B-F16.gguf");
+//        Path modelPath = Paths.get("/home/orion/LLMModels/DeepSeek-R1-Distill-Qwen-1.5B-F16.gguf");
+        Path modelPath = Paths.get("/home/mikepapadim/Storage/gguf_models/Qwen3-1.7B-f16.gguf");
 
         // Create models with parameters
         GPULlama3StreamingChatModel bot1 = GPULlama3StreamingChatModel.builder()
                 .modelPath(modelPath)
                 .temperature(0.6)
-                .topP(1.0)
-                .maxTokens(2048)
+                .topP(0.95)
+                .maxTokens(4096)
+                .seed(1866517172)
                 .onGPU(Boolean.FALSE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .build();
 
         GPULlama3StreamingChatModel bot2 = GPULlama3StreamingChatModel.builder()
                 .modelPath(modelPath)
                 .temperature(0.6)
-                .topP(1.0)
-                .maxTokens(2048)
+                .topP(0.95)
+                .maxTokens(4096)
+                .seed(1866517172)
                 .onGPU(Boolean.TRUE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .build();
 
@@ -68,9 +71,10 @@ public class _4_Conversation {
         String currentMessage;
 
         ////// turn 1: bot1
-        System.out.print("\nAgent1: ");
+        System.out.print("\nAgent1 (CPU): ");
         CompletableFuture<ChatResponse> futureResponse1 = new CompletableFuture<>();
         // step1: update memory
+        agent1Memory.add(systemMessage1);
         agent1Memory.add(UserMessage.from(initialMessage));
         // step2: request
         request = ChatRequest.builder()
@@ -83,8 +87,9 @@ public class _4_Conversation {
         agent1Memory.add(AiMessage.from(currentMessage));
 
         ////// turn2: bot 2
-        System.out.print("\nAgent2: ");
+        System.out.print("\nAgent2 (GPU): ");
         CompletableFuture<ChatResponse> futureResponse2 = new CompletableFuture<>();
+        agent2Memory.add(systemMessage2);
         agent2Memory.add(UserMessage.from(currentMessage));
         request = ChatRequest.builder()
                 .messages(agent2Memory.messages())
@@ -95,7 +100,7 @@ public class _4_Conversation {
         agent2Memory.add(AiMessage.from(currentMessage));
 
         ////// turn 3: bot1
-        System.out.print("\nAgent1: ");
+        System.out.print("\nAgent1 (CPU): ");
         CompletableFuture<ChatResponse> futureResponse3 = new CompletableFuture<>();
         agent1Memory.add(UserMessage.from(currentMessage));
         request = ChatRequest.builder()
@@ -107,7 +112,7 @@ public class _4_Conversation {
         agent1Memory.add(AiMessage.from(currentMessage));
 
         ////// turn4: bot 2
-        System.out.print("\nAgent2: ");
+        System.out.print("\nAgent2 (GPU): ");
         CompletableFuture<ChatResponse> futureResponse4 = new CompletableFuture<>();
         agent2Memory.add(UserMessage.from(currentMessage));
         request = ChatRequest.builder()

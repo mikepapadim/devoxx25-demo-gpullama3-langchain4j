@@ -18,6 +18,7 @@ public class _1_ChatExample {
         //Tested witg Qwen3-1.7B-f16.gguf &&
         Path modelPath = Paths.get("/home/mikepapadim/Storage/gguf_models/Qwen3-1.7B-f16.gguf");
 
+        //@formatter:off
         GPULlama3ChatModel model = GPULlama3ChatModel.builder()
                 .modelPath(modelPath)
                 .temperature(0.6)
@@ -26,16 +27,14 @@ public class _1_ChatExample {
                 .onGPU(Boolean.TRUE) // if false, runs on CPU though a lightweight implementation of llama3.java
                 .build();
 
+        //@formatter:on
+
         String systemPrompt = "You are a helpful assistant.";
         String userPrompt1 = "Hi, my name is Orion. Who are you?";
 
         System.out.println("User: " + userPrompt1);
 
-        ChatRequest request = ChatRequest.builder()
-                .messages(
-                        SystemMessage.from(systemPrompt),
-                        UserMessage.from(userPrompt1))
-                .build();
+        ChatRequest request = ChatRequest.builder().messages(SystemMessage.from(systemPrompt), UserMessage.from(userPrompt1)).build();
 
         ChatResponse response = model.chat(request);
 

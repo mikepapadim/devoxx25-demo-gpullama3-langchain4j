@@ -53,16 +53,39 @@ org.example._1_ChatExample
 ### 2. Streaming Example  
 
 ```bash
-tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off -Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G"
--cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)"
+tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
+-Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
 org.example._2_StreamingExample
 ```
 
 ### 3. Chat Memory Example  
 
 ```bash
-bash tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off -Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G"
--cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)"
+tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
+-Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
 org.example._3_ChatMemoryExample
+```
+
+## Agent Examples 
+###### !!! Port of [Agentic Tutorial](https://github.com/langchain4j/langchain4j-examples/tree/main/agentic-tutorial) for GPULlama3.java !!!
+
+### 1a. Basic Agent Example 
+
+```bash
+tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
+-Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
+org.example.agents._1_basic_agent._1a_Basic_Agent_Example <GPU|CPU>
+```
+
+### 1b. Basic Agent Example (Structured)  
+
+```bash
+tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
+-Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
+org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured <GPU|CPU>
 ```
 

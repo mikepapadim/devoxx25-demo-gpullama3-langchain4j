@@ -89,3 +89,18 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured <GPU|CPU>
 ```
 
+## Performance Comparison: GPULlama3.java Engines
+
+The plots compare **GPULlama3.java running on two different execution engines**:
+
+- **GPU Engine (TornadoVM OpenCL)** on *Nvidia 5090 – 24 GB*  
+- **CPU Engine (llama3.java)** on *Intel® Core™ Ultra 9 275HX × 24, 64 GB*  
+
+The bar charts show **GPU speedups over CPU** for different tasks and models.  
+- Across all benchmarks, the **GPU engine consistently outperforms the CPU engine**, with speedups ranging from ~3.5× to nearly 5× depending on the model and workload.  
+- The **task-level plots** highlight where GPU acceleration provides the largest gains, while the **average speedup plots** summarize overall performance advantages per model.  
+
+These results demonstrate the significant benefits of running GPULlama3 models on TornadoVM’s GPU engine compared to the CPU engine.
+
+<img width="6000" height="3600" alt="gpu_cpu_speedup" src="https://github.com/user-attachments/assets/cc560594-1f22-4d09-a243-644aaa6f3b31" />
+

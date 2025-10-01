@@ -17,6 +17,7 @@ The examples demonstrate:
 - **TornadoVM** installed and configured on your system  
 - A GPU with sufficient VRAM (20 GB recommended)  
 
+Follow the [TornadoVM installation guide](https://github.com/beehive-lab/TornadoVM) to set up TornadoVM on your system.
 Make sure TornadoVM is available in your `PATH` via the `tornado` command.  
 
 ---

@@ -102,5 +102,5 @@ The bar charts show **GPU speedups over CPU** for different tasks and models.
 
 These results demonstrate the significant benefits of running GPULlama3 models on TornadoVM’s GPU engine compared to the CPU engine.
 
-<img width="6000" height="3600" alt="gpu_cpu_speedup" src="https://github.com/user-attachments/assets/cc560594-1f22-4d09-a243-644aaa6f3b31" />
+<img width="6000" height="3600" alt="gpu_cpu_speedup_final" src="https://github.com/user-attachments/assets/b4f2ec51-b025-4f0e-9fde-7e8c0bf926d1" />
 

@@ -1,4 +1,4 @@
-# Devoxx 2025 Demo – GPU LLaMA 3 with LangChain4j & TornadoVM  
+# Devoxx 2025 Demo – GPULLaMA3.java with LangChain4j & TornadoVM  
 
 This repository contains demo applications showcasing how to run **LLaMA 3 models on GPU** via [LangChain4j](https://github.com/langchain4j/langchain4j), using [GPULlama3.java](https://github.com/beehive-lab/GPULlama3.java) and integrated with [TornadoVM](https://github.com/beehive-lab/TornadoVM).  
 
@@ -50,38 +50,19 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example._1_ChatExample
 ```
 
-### 2. Chat with Memory  
+### 2. Streaming Example  
 
 ```bash
-tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
--Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
--cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
-org.example._2_ChatMemoryExample
+tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off -Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G"
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)"
+org.example._2_StreamingExample
 ```
 
-### 3. Streaming Example  
+### 3. Chat Memory Example  
 
 ```bash
-tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
--Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
--cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
-org.example._3_StreamingExample
+bash tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off -Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G"
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)"
+org.example._3_ChatMemoryExample
 ```
 
-### 4. Multi-turn Conversation  
-
-```bash
-tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
--Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
--cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
-org.example._4_Conversation
-```
-
----
-
-## 📖 References  
-
-- [LangChain4j](https://github.com/langchain4j/langchain4j)  
-- [GPULlama3.java](https://github.com/beehive-lab/GPULlama3.java)  
-- [TornadoVM](https://github.com/beehive-lab/TornadoVM)  
-- [LLaMA 3](https://ai.meta.com/llama/)  

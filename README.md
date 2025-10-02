@@ -89,6 +89,15 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured <GPU|CPU>
 ```
 
+### 2a. Sequential Agent Example  
+
+```bash
+tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
+-Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
+-cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
+org.example.agents._2_sequential_workflow._2a_Sequential_Agent_Example <GPU|CPU>
+```
+
 ## Performance Comparison: GPULlama3.java Engines
 
 The plots compare **GPULlama3.java running on two different execution engines**:

@@ -140,7 +140,7 @@ java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat 
 The plots compare **GPULlama3.java running on two different execution engines**:
 
 - **GPU Engine (TornadoVM OpenCL)** on *Nvidia 5090 – 24 GB*  
-- **CPU Engine (llama3.java)** on *Intel® Core™ Ultra 9 275HX × 24, 64 GB*  
+- **CPU Engine (llama3.java)<sub>1</sub>**  on *Intel® Core™ Ultra 9 275HX × 24, 64 GB*  
 
 The bar charts show **GPU speedups over CPU** for different tasks and models.  
 - Across all benchmarks, the **GPU engine consistently outperforms the CPU engine**, with speedups ranging from ~3.5× to nearly 5× depending on the model and workload.  
@@ -149,4 +149,5 @@ The bar charts show **GPU speedups over CPU** for different tasks and models.
 These results demonstrate the significant benefits of running GPULlama3 models on TornadoVM’s GPU engine compared to the CPU engine.
 
 <img width="6000" height="3600" alt="gpu_cpu_speedup_final" src="https://github.com/user-attachments/assets/b4f2ec51-b025-4f0e-9fde-7e8c0bf926d1" />
+<sub>1</sub>: It was developed from the commit point commit https://github.com/mukel/llama3.java/commit/5fc76c665c349456e1a6a458339531bf3abab308
 

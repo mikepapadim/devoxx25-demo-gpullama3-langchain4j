@@ -41,7 +41,8 @@ This produces:
 
 All commands assume you are in the project root and have a valid `cp.txt` (classpath dependencies file).  
 
-### 1. Chat Example  
+### 1. Chat Example 
+**tornado CLI:**
 
 ```bash
 tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
@@ -50,7 +51,13 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example._1_ChatExample
 ```
 
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured GPU
+```
+
 ### 2. Streaming Example  
+**tornado CLI:**
 
 ```bash
 tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
@@ -59,7 +66,13 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example._2_StreamingExample
 ```
 
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._2_StreamingExample  GPU
+```
+
 ### 3. Chat Memory Example  
+**tornado CLI:**
 
 ```bash
 tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
@@ -68,10 +81,16 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example._3_ChatMemoryExample
 ```
 
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._3_ChatMemoryExample  GPU
+```
+
 ## Agent Examples 
 ###### !!! Port of [Agentic Tutorial](https://github.com/langchain4j/langchain4j-examples/tree/main/agentic-tutorial) for GPULlama3.java !!!
 
-### 1a. Basic Agent Example 
+### 1a. Basic Agent Example
+**tornado CLI:**
 
 ```bash
 tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
@@ -80,7 +99,14 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example.agents._1_basic_agent._1a_Basic_Agent_Example <GPU|CPU>
 ```
 
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._1a_Basic_Agent_Example  GPU
+```
+
+
 ### 1b. Basic Agent Example (Structured)  
+**tornado CLI:**
 
 ```bash
 tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
@@ -89,13 +115,24 @@ tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured <GPU|CPU>
 ```
 
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured  GPU
+```
+
 ### 2a. Sequential Agent Example  
+**tornado CLI:**
 
 ```bash
 tornado --jvm="-Dorg.slf4j.simpleLogger.defaultLogLevel=off \
 -Dtornado.device.memory=20GB -XX:MaxDirectMemorySize=20G" \
 -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" \
 org.example.agents._2_sequential_workflow._2a_Sequential_Agent_Example <GPU|CPU>
+```
+
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._2a_Sequential_Agent_Example  GPU
 ```
 
 ## Performance Comparison: GPULlama3.java Engines

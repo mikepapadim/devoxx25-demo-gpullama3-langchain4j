@@ -53,7 +53,7 @@ org.example._1_ChatExample
 
 **java**
 ```bash
-java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._1b_Basic_Agent_Example_Structured GPU
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.org.example._1_ChatExample
 ```
 
 ### 2. Streaming Example  
@@ -68,7 +68,7 @@ org.example._2_StreamingExample
 
 **java**
 ```bash
-java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._2_StreamingExample  GPU
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example._2_StreamingExample
 ```
 
 ### 3. Chat Memory Example  
@@ -83,7 +83,7 @@ org.example._3_ChatMemoryExample
 
 **java**
 ```bash
-java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._3_ChatMemoryExample  GPU
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent.org.example._3_ChatMemoryExample
 ```
 
 ## Agent Examples 

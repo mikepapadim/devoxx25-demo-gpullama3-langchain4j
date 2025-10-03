@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 public class ChatModelProvider {
 
-    static Path modelPath = Paths.get("/home/orion/LLMModels/beehive-llama-3.2-8b-instruct-fp16.gguf"); // works
+    static Path modelPath = Paths.get("/home/devoxx2025-demo/java-ai-demos/models/beehive-llama-3.2-8b-instruct-fp16.gguf"); // works
     //static Path modelPath = Paths.get("/home/orion/LLMModels/Qwen3-8B-f16.gguf"); // works -> add /no_think in prompt
 
     /**
@@ -32,7 +32,7 @@ public class ChatModelProvider {
      */
     public static ChatModel createChatModelLlama1B(int maxTokens, Boolean onGPU) {
         return GPULlama3ChatModel.builder()
-                .modelPath(Paths.get("/home/orion/LLMModels/beehive-llama-3.2-1b-instruct-fp16.gguf"))
+                .modelPath(Paths.get("/home/devoxx2025-demo/java-ai-demos/models/beehive-llama-3.2-1b-instruct-fp16.gguf"))
                 .temperature(0.1)   // low randomness
                 .topP(0.85)         // restrict sampling
                 .maxTokens(maxTokens)    // enough space for CV
@@ -47,7 +47,7 @@ public class ChatModelProvider {
      */
     public static ChatModel createChatModelLlama8B(int maxTokens, Boolean onGPU) {
         return GPULlama3ChatModel.builder()
-                .modelPath(Paths.get("/home/orion/LLMModels/beehive-llama-3.2-8b-instruct-fp16.gguf"))
+                .modelPath(Paths.get("/home/devoxx2025-demo/java-ai-demos/models/beehive-llama-3.2-8b-instruct-fp16.gguf"))
                 .temperature(0.1)   // low randomness
                 .topP(0.85)         // restrict sampling
                 .maxTokens(maxTokens)    // enough space for CV
@@ -60,7 +60,7 @@ public class ChatModelProvider {
      */
     public static ChatModel createChatModelQwen3_06B(Boolean onGPU) {
         return GPULlama3ChatModel.builder()
-                .modelPath(Paths.get("/home/orion/LLMModels/Qwen3-0.6B-f16.gguf"))
+                .modelPath(Paths.get("/home/devoxx2025-demo/java-ai-demos/models/Qwen3-0.6B-f16.gguf"))
                 .temperature(0.1)   // low randomness
                 .topP(0.85)         // restrict sampling
                 .maxTokens(5000)    // enough space for CV
@@ -75,7 +75,7 @@ public class ChatModelProvider {
      */
     public static ChatModel createChatModelQwen3_8B(Boolean onGPU) {
         return GPULlama3ChatModel.builder()
-                .modelPath(Paths.get("/home/orion/LLMModels/Qwen3-8B-f16.gguf"))
+                .modelPath(Paths.get("/home/devoxx2025-demo/java-ai-demos/models/Qwen3-8B-f16.gguf"))
                 .temperature(0.1)   // low randomness
                 .topP(0.85)         // restrict sampling
                 .maxTokens(5000)    // enough space for CV

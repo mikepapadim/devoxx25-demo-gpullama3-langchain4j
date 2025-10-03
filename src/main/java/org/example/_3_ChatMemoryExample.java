@@ -20,7 +20,7 @@ public class _3_ChatMemoryExample {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         // Create model
-        Path modelPath = Paths.get("/home/orion/LLMModels/Qwen3-8B-f16.gguf");
+        Path modelPath = Paths.get("/home/devoxx2025-demo/java-ai-demos/models/Qwen3-8B-f16.gguf");
 
         GPULlama3StreamingChatModel model = GPULlama3StreamingChatModel.builder()
                 .modelPath(modelPath)

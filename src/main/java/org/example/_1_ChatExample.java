@@ -16,7 +16,7 @@ public class _1_ChatExample {
 
         // Create model
         //Tested witg Qwen3-1.7B-f16.gguf
-        Path modelPath = Paths.get("/home/orion/LLMModels/beehive-llama-3.2-1b-instruct-fp16.gguf");
+        Path modelPath = Paths.get("/home/devoxx2025-demo/java-ai-demos/models/beehive-llama-3.2-1b-instruct-fp16.gguf");
 
         //@formatter:off
         GPULlama3ChatModel model = GPULlama3ChatModel.builder()

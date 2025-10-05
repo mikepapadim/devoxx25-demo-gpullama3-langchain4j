@@ -132,7 +132,7 @@ org.example.agents._2_sequential_workflow._2a_Sequential_Agent_Example <GPU|CPU>
 
 **java**
 ```bash
-java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._1_basic_agent._2a_Sequential_Agent_Example  GPU
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._2_sequential_workflow._2a_Sequential_Agent_Example  GPU
 ```
 
 ## Performance Comparison: GPULlama3.java Engines

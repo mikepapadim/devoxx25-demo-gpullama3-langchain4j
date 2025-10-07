@@ -53,7 +53,7 @@ org.example._1_ChatExample
 
 **java**
 ```bash
-java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.org.example._1_ChatExample
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example._1_ChatExample
 ```
 
 ### 2. Streaming Example  

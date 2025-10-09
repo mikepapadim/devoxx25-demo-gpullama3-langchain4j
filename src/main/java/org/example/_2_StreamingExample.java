@@ -17,7 +17,7 @@ public class _2_StreamingExample {
     public static void main(String[] args) {
 
         // Create model
-        Path modelPath = Paths.get("/home/orion/LLMModels/beehive-llama-3.2-1b-instruct-fp16.gguf");
+        Path modelPath = Paths.get("/home/devoxx2025-demo/java-ai-demos/models/beehive-llama-3.2-1b-instruct-fp16.gguf");
 
         GPULlama3StreamingChatModel model = GPULlama3StreamingChatModel.builder()
                 .modelPath(modelPath)
@@ -29,13 +29,17 @@ public class _2_StreamingExample {
 
         // Create request
         String prompt = "Who are you?";
+        String systemPrompt = "You are a helpful assistant that replies in French";
+
+        System.out.println("\nUser Prompt: " + prompt);
+        System.out.println("System Prompt: " + systemPrompt + "\n");
 
         CompletableFuture<ChatResponse> futureResponse = new CompletableFuture<>();
 
         ChatRequest request = ChatRequest.builder()
                 .messages(
                         UserMessage.from(prompt),
-                        SystemMessage.from("reply with extensive sarcasm"))
+                        SystemMessage.from(systemPrompt))
                 .build();
 
         // @formatter:on

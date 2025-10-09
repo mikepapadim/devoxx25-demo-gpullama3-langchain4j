@@ -16,8 +16,8 @@ public class TicTacToeAgenticGame {
         CustomLogging.setLevel(LogLevels.PRETTY, 300);
     }
 
-    private static final ChatModel LLAMA_CHAT_MODEL_GPU = ChatModelProvider.createChatModel(true);
-    private static final ChatModel LLAMA_CHAT_MODEL = ChatModelProvider.createChatModel(false);
+    private static final ChatModel LLAMA_CHAT_MODEL_GPU = ChatModelProvider.createChatModelLlama8B(5000,true);
+    private static final ChatModel LLAMA_CHAT_MODEL = ChatModelProvider.createChatModelLlama1B(5000,false);
 
     public static void main(String[] args) {
 

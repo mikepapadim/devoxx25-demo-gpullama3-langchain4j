@@ -135,6 +135,15 @@ org.example.agents._2_sequential_workflow._2a_Sequential_Agent_Example <GPU|CPU>
 java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents._2_sequential_workflow._2a_Sequential_Agent_Example  GPU
 ```
 
+
+### TicTacToeAgenticGame (CPU vs GPU playing TicTacToe together with different models (small vs large))
+
+**java**
+```bash
+java @options.txt -cp "target/langchain4j-gpullama3-demo-1.0-SNAPSHOT.jar:$(cat cp.txt)" org.example.agents.tic_tac_toe.TicTacToeAgenticGame
+```
+
+
 ## Performance Comparison: GPULlama3.java Engines
 
 The plots compare **GPULlama3.java running on two different execution engines**:

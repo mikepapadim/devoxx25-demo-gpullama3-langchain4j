@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 public class ChatModelProvider {
 
-    static Path modelPath = Paths.get("/home/devoxx2025-demo/java-ai-demos/models/beehive-llama-3.2-8b-instruct-fp16.gguf"); // works
+    static Path modelPath = Paths.get("/Users/orion/LLMModels/beehive-llama-3.2-1b-instruct-fp16.gguf"); // works
     //static Path modelPath = Paths.get("/home/orion/LLMModels/Qwen3-8B-f16.gguf"); // works -> add /no_think in prompt
 
     /**
